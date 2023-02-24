@@ -1,3 +1,4 @@
+import { Add } from "./Add/Add";
 export const App = () => {
   return (
     <div
@@ -11,6 +12,7 @@ export const App = () => {
       }}
     >
       React homework template
+      <Add/>
     </div>
   );
 };
