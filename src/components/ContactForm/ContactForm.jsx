@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { BoxContactForm } from "./ContactForm.stiled";
 import { InputContactForm } from "./ContactForm.stiled";
 import { LabelContactForm } from "./ContactForm.stiled";
 import { ButtonContactForm } from "./ContactForm.stiled";
 
-export default function ContactForm() {
+export default function ContactForm({onSubmit}) {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     const [statusButtomForm, setStatusButtomForm] = useState('false');
@@ -25,7 +26,7 @@ const handleChange = (event) => {
      setTimeout(() => { setStatusButtomForm(false) }, 1000);
      let data = { name: `${name}`, number: `${number}` }
      console.log(data);
-     this.props.onSubmit( {data}); 
+     onSubmit(data); 
        //event.currentTarget.name.value = '';
        resetForm();
     }
@@ -61,6 +62,8 @@ const handleChange = (event) => {
                     
         </> )   
  };
-
-
+ContactForm.propTypes = {
+    onSubmit:PropTypes.func,
+    onChange: PropTypes.func,
+   }
 
